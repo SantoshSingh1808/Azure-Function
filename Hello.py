@@ -1,6 +1,24 @@
 import logging
 import azure.functions as func
 
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"],
+      "route": "hello"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('यह Azure Function चालू हो गया है।')
 
